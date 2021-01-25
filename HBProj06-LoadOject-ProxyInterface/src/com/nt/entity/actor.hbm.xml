@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- Model-1 Specifying column details using Column tag -->
+
+<!-- 	<class name="com.nt.entity.Actor" table="ACTOR">
+	
+		<id name="actorId" type="int">
+			<column name="ACTORID"/>
+			<generator class="increment"/>
+		</id>
+		<property name="actorName" type="string">
+			<column name="ACTORNAME" length="10" not-null="true" unique="true" />
+		</property>
+		<property name="address" type="string">
+			<column name="ADDRESS" length="10" />
+		</property>
+		<property name="remuneration" type="float">
+			<column name="REMUNERATION" />
+		</property>
+	</class> -->
+
+<!-- Model-2 Specifying column details using property  -->
+	<!-- <class name="com.nt.entity.Actor" table="ACTOR">
+	
+		<id name="actorId" type="int" column="ACTORID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="actorName" type="string" column="ACTORNAME" not-null="true" unique="true" length="10"/>
+		<property name="address" type="string" column="ADDRESS" length="10" />
+		<property name="remuneration" type="float" column="REMUNERATION"/>
+	</class> -->
+	
+
+<!-- Model-3 Specifying Entity details as same as column details using property  -->
+	<class name="com.nt.entity.Actor" lazy="false" proxy="com.nt.entity.IActor">
+		<id name="actorId" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="actorName" type="string" length="10" not-null="true" unique="true"/>
+		<property name="address" type="string" length="10"/>
+		<property name="remuneration" type="float"/>
+	</class>
+
+</hibernate-mapping>
